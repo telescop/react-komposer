@@ -1,43 +1,28 @@
-'use strict';
+"use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _extends2 = require('babel-runtime/helpers/extends');
-
-var _extends3 = _interopRequireDefault(_extends2);
-
-var _typeof2 = require('babel-runtime/helpers/typeof');
-
-var _typeof3 = _interopRequireDefault(_typeof2);
-
-exports.default = composeWithPromise;
-
-var _compose = require('../compose');
-
-var _compose2 = _interopRequireDefault(_compose);
-
-var _invariant = require('invariant');
-
-var _invariant2 = _interopRequireDefault(_invariant);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+exports["default"] = composeWithPromise;
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+var _typeof2 = _interopRequireDefault(require("@babel/runtime/helpers/typeof"));
+var _compose = _interopRequireDefault(require("../compose"));
+var _invariant = _interopRequireDefault(require("invariant"));
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2["default"])(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 function composeWithPromise(fn, L, E, options) {
   var onPropsChange = function onPropsChange(props, onData, context) {
     var promise = fn(props, context);
-    (0, _invariant2.default)(typeof promise.then === 'function' && typeof promise.catch === 'function', 'Should return a promise from the callback of `composeWithPromise`');
-
+    (0, _invariant["default"])(typeof promise.then === 'function' && typeof promise["catch"] === 'function', 'Should return a promise from the callback of `composeWithPromise`');
     onData();
     promise.then(function (data) {
-      (0, _invariant2.default)((typeof data === 'undefined' ? 'undefined' : (0, _typeof3.default)(data)) === 'object', 'Should return a plain object from the promise');
-      var clonedData = (0, _extends3.default)({}, data);
+      (0, _invariant["default"])((0, _typeof2["default"])(data) === 'object', 'Should return a plain object from the promise');
+      var clonedData = _objectSpread({}, data);
       onData(null, clonedData);
-    }).catch(function (err) {
+    })["catch"](function (err) {
       onData(err);
     });
   };
-
-  return (0, _compose2.default)(onPropsChange, L, E, options);
+  return (0, _compose["default"])(onPropsChange, L, E, options);
 }

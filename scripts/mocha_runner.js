@@ -1,14 +1,15 @@
 /* globals document */
 
-require('babel-core/register');
-require('babel-polyfill');
+require('@babel/register');
+require('@babel/polyfill');
 
 // Add jsdom support, which is required for enzyme.
-var jsdom = require('jsdom').jsdom;
+var jsdom = require('jsdom');
 
 var exposedProperties = [ 'window', 'navigator', 'document' ];
 
-global.document = jsdom('');
+global.document = (new jsdom.JSDOM('', {
+  url: "http://localhost"})).window.document;
 global.window = document.defaultView;
 Object.keys(document.defaultView).forEach(property => {
   if (typeof global[property] === 'undefined') {

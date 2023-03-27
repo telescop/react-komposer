@@ -1,73 +1,44 @@
-'use strict';
+"use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.DummyComponent = undefined;
-
-var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
-
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-
-var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = require('babel-runtime/helpers/createClass');
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = require('babel-runtime/helpers/inherits');
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
 exports.DefaultErrorComponent = DefaultErrorComponent;
 exports.DefaultLoadingComponent = DefaultLoadingComponent;
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var DummyComponent = exports.DummyComponent = function (_React$Component) {
-  (0, _inherits3.default)(DummyComponent, _React$Component);
-
+exports.DummyComponent = void 0;
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+var _react = _interopRequireDefault(require("react"));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2["default"])(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+var DummyComponent = /*#__PURE__*/function (_React$Component) {
+  (0, _inherits2["default"])(DummyComponent, _React$Component);
+  var _super = _createSuper(DummyComponent);
   function DummyComponent() {
-    (0, _classCallCheck3.default)(this, DummyComponent);
-    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(DummyComponent).apply(this, arguments));
+    (0, _classCallCheck2["default"])(this, DummyComponent);
+    return _super.apply(this, arguments);
   }
-
-  (0, _createClass3.default)(DummyComponent, [{
-    key: 'render',
+  (0, _createClass2["default"])(DummyComponent, [{
+    key: "render",
     value: function render() {
       return null;
     }
   }]);
   return DummyComponent;
-}(_react2.default.Component);
-
+}(_react["default"].Component);
+exports.DummyComponent = DummyComponent;
 function DefaultErrorComponent(_ref) {
   var error = _ref.error;
-
-  return _react2.default.createElement(
-    'pre',
-    { style: { color: 'red' } },
-    error.message,
-    ' ',
-    _react2.default.createElement('br', null),
-    error.stack
-  );
+  return /*#__PURE__*/_react["default"].createElement("pre", {
+    style: {
+      color: 'red'
+    }
+  }, error.message, " ", /*#__PURE__*/_react["default"].createElement("br", null), error.stack);
 }
-
 function DefaultLoadingComponent() {
-  return _react2.default.createElement(
-    'p',
-    null,
-    'Loading...'
-  );
+  return /*#__PURE__*/_react["default"].createElement("p", null, "Loading...");
 }
